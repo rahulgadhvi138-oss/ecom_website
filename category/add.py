@@ -36,17 +36,25 @@
 
 def add(label: str, lis: list):
 
-    item = {
-        "id": int(input(f"Enter {label} ID: ")),
-        "name": input(f"Enter {label} Name: ")
-    }
+    try:
+        item = {
+            "id": int(input(f"Enter {label} ID: ")),
+            "name": input(f"Enter {label} Name: ")
+        }
 
-    if label == "category":
-        item["products"] = []
+        if label == "category":
+            item["products"] = []
 
-    elif label == "Product":
-        item["price"] = input("Enter Product Price: ")
+        elif label == "Product":
+            item["price"] = float(input("Enter Product Price: "))
 
-    lis.append(item)
+        lis.append(item)
 
-    print(f"{label} Added Successfully!")
+        print(f"{label} Added Successfully!")
+        print("----------------------")
+
+    except ValueError:
+        print(" Please enter a valid number!")
+
+    except Exception as e:
+        print(f" Something went wrong: ")

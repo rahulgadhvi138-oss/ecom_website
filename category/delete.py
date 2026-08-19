@@ -1,19 +1,19 @@
-def delete_category(categories):
+def delete(label: str, lis: list):
 
-    cid = int(input("Enter Category ID: "))
+    id = int(input(f"Enter {label} ID: "))
 
-    for category in categories:
+    for item in lis:
 
-        if category["id"] == cid:
+        if item["id"] == id:
 
-            ch = input("Delete Category? (y/n): ").lower()
+            item["name"] = input(f"Enter New {label} Name: ")
 
-            if ch == "y":
+            if label == "Product":
+                item["price"] = input("Enter New Product Price: ")
 
-                categories.remove(category)
-
-                print("Category Deleted!")
-
+            print(f"{label} Updated Successfully!")
+            print("----------------------")
             return
 
-    print("Category Not Found!")
+    print(f"{label} Not Found!")
+    print("----------------------")

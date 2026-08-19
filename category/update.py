@@ -1,15 +1,28 @@
-def update_category(categories):
+def update(label: str, lis: list):
+    while True:
+        try:
+            id = int(input(f"Enter {label} ID: "))
+            break
+        except:
+            print("Give Proper Number")
+        
 
-    cid = int(input("Enter Category ID: "))
+    for item in lis:
 
-    for category in categories:
+        if item["id"] == id:
+            print("DEBUG 1.")
 
-        if category["id"] == cid:
+            item["name"] = input(f"Enter New {label} Name: ")
+            print("DEBUG 2")
 
-            category["name"] = input("Enter New Category Name: ")
+            if label == "Product":
+                item["price"] = input("Enter New Product Price: ")
+                print("DEBUG 3")
 
-            print("Category Updated!")
-
+            print(f"{label} Updated Successfully!")
+            print("----------------------")
             return
 
-    print("Category Not Found!")
+        print(f"{label} Not Found!")
+        print("----------------------")
+        

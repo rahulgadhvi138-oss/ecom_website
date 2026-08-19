@@ -1,24 +1,24 @@
-def delete_product(selected_category):
+# def delete_product(selected_category):
 
-    print("Delete Product")
+#     print("Delete Product")
 
-    delete_id = int(input("Enter Product ID: "))
+#     delete_id = int(input("Enter Product ID: "))
 
-    products = selected_category["products"]
+#     products = selected_category["products"]
 
-    found = False
+#     found = False
 
-    for product in products:
+#     for product in products:
 
-        if product["id"] == delete_id:
+#         if product["id"] == delete_id:
 
-            products.remove(product)
+#             products.remove(product)
 
-            print("Product Deleted!")
+#             print("Product Deleted!")
 
-            found = True
-            break
+#             found = True
+#             break
 
-    if not found:
+#     if not found:
 
-        print("Product Not Found!")
+#         print("Product Not Found!")
