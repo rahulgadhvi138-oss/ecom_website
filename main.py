@@ -11,7 +11,7 @@ from category.delete import delete
 categories = []
 
 while True:
-
+    print("Welcome to E-Commerce Website")
     print("\n===== MAIN MENU =====")
     print("1. Manage Category")
     print("2. Exit")
