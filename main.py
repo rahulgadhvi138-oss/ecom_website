@@ -2,6 +2,7 @@ from category.add import add
 from category.show import show
 from category.update import update
 from category.delete import delete
+from category.helper import get_integer
 
 
 # from product.add import add_product
@@ -16,7 +17,7 @@ while True:
     print("1. Manage Category")
     print("2. Exit")
 
-    choice = int(input("Enter Choice: ")) 
+    choice = get_integer("Enter Choice: ") 
     if choice == 1:
 
         while True:
@@ -29,7 +30,7 @@ while True:
                 print("5. Manage Product")
                 print("6. Back")
 
-                ch = int(input("Enter Choice: "))
+                ch = get_integer("Enter Choice: ") 
 
                 if ch == 1:
                     add(label="category",lis=categories)
@@ -54,9 +55,14 @@ while True:
                         print(i, category["name"])
 
 
-                    ch = int(input("Enter Your Choice: "))
+                    ch = get_integer("Enter Your Choice: ")
 
-                    selected_category = categories[ch - 1]
+                    try:
+                        selected_category = categories[ch - 1]
+
+                    except IndexError:
+                        print(" Invalid category choice.")
+                        continue
                     for product in selected_category["products"]:
                         print(product)
                     print("[DEBUG]", selected_category)
@@ -69,7 +75,7 @@ while True:
                     print("4. Delete Product")
                     print("5. Back")
 
-                    product_choice = int(input("Enter Your Choice: "))
+                    product_choice = get_integer("Enter Choice: ")
 
 
                     # Add Product
@@ -99,19 +105,21 @@ while True:
                     elif product_choice == 5:
 
                             print("Back TO Manage category:")
-                   
+
+                elif ch == 6:
+                    print("Back to Main Menu")
+                    break
+
                 else:
-
-                            print("Invalid Choice")
-
+                    print("Give Me Proper Number")
 
 
 
 
 # Exit
     elif choice == 2:
-     print("Program Closed")
-    break
+        print("Program Closed")
+        break
 
-else:
-    print("Invalid Choice")                                                                                                                                                          
+    else:
+        print("Invalid Choice")
