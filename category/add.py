@@ -1,60 +1,60 @@
-# def add_category(categories):
-
-#     category = {
-#         "id": int(input("Enter Category ID: ")),
-#         "name": input("Enter Category Name: "),
-#         "products": []
-#     }
-
-#     categories.append(category)
-
-#     print("Category Added Successfully!")
+from category.save import save_categories
+import traceback
 
 
+def add(label: str, lis: list, filename: str, all_categories=None):
 
-
-
-
-
-
-
-# def add(label: str, lis: list):
-#     if len(lis) == 0:
-#         print(f"No {label} Found!")
-
-#     else:
-#         print(f"\n==== {label.upper()} LIST")
-
-#         for elem in lis:
-#             print("[DEBUG] :", elem, type(elem))
-#             for key, value in elem.items():
-#                 # print(f"[DEBUG] : VALUE - {value}, {isinstance(value, list)}")
-#                 if not isinstance(value, list):
-#                     print(f"{key.upper()} : {value}")
-
-#             print("----------------------")
-
-def add(label: str, lis: list):
+    print("debug 1.")
 
     try:
+
+        print("debug 2.")
+
         item = {
             "id": int(input(f"Enter {label} ID: ")),
             "name": input(f"Enter {label} Name: ")
         }
 
+        print("debug 3.")
+
         if label == "category":
+
+            print("debug 4.")
+
             item["products"] = []
 
+            print("debug 5.")
+
         elif label == "Product":
-            item["price"] = float(input("Enter Product Price: "))
+
+            print("debug 6.")
+
+            item["price"] = float(
+                input("Enter Product Price: ")
+            )
+
+            print("debug 7.")
+
+        print("debug 8.")
 
         lis.append(item)
+
+       
+
+        if label == "category":
+            save_categories(filename, lis)
+
+        elif label == "Product":
+            save_categories(filename, all_categories)
 
         print(f"{label} Added Successfully!")
         print("----------------------")
 
     except ValueError:
-        print(" Please enter a valid number!")
+
+        print("Please enter a valid number!")
 
     except Exception as e:
-        print(f" Something went wrong: ")
+
+        traceback.print_exc()
+        print("Something went wrong:", e)

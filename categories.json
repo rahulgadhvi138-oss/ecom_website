@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "name": "mobile",
+        "products": [
+            {
+                "id": 1,
+                "name": "iphone",
+                "price": 15000.0
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "tv",
+        "products": []
+    },
+    {
+        "id": 1,
+        "name": "mobile",
+        "products": []
+    },
+    {
+        "id": 2,
+        "name": "tv",
+        "products": []
+    },
+    {
+        "id": 3,
+        "name": "lptop",
+        "products": []
+    }
+]
