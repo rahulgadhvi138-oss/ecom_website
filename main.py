@@ -3,13 +3,16 @@ from category.show import show
 from category.update import update
 from category.delete import delete
 from category.helper import get_integer
+from category.read import read_categories
 
 
 # from product.add import add_product
 # from product.show import show_product
 # from product.update import update_product
 # from product.delete import delete_product
-categories = []
+# categories = []
+CATEGORY_FILE = "categories.json" 
+categories = read_categories(CATEGORY_FILE)
 
 while True:
     print("Welcome to E-Commerce Website")
@@ -33,10 +36,19 @@ while True:
                 ch = get_integer("Enter Choice: ") 
 
                 if ch == 1:
-                    add(label="category",lis=categories)
+
+                    add(
+                        label="category",
+                        lis=categories,
+                        filename=CATEGORY_FILE
+                        )
 
                 elif ch == 2:
-                    show(label="Category", lis=categories)
+
+                    if categories:
+                        show(label="Category", lis=categories)
+                    else:
+                        print("No categories yet.")
 
                 elif ch == 3:
                      update(label="Category", lis=categories)
@@ -81,7 +93,13 @@ while True:
                     # Add Product
                     if product_choice == 1:
                         print(selected_category)
-                        add(label="Product", lis=selected_category["products"])
+
+                        add(
+                            label="Product",
+                            lis=selected_category["products"],
+                            filename=CATEGORY_FILE,
+                            all_categories=categories
+                        )
                         
 
                     elif product_choice == 2:
