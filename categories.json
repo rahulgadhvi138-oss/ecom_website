@@ -16,18 +16,8 @@
         "products": []
     },
     {
-        "id": 1,
-        "name": "mobile",
-        "products": []
-    },
-    {
-        "id": 2,
-        "name": "tv",
-        "products": []
-    },
-    {
         "id": 3,
-        "name": "lptop",
+        "name": "Mobiles",
         "products": []
     }
 ]
